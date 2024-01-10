@@ -52,13 +52,13 @@ int _isalpha(int c)
 
 int _atoi(char *s)
 {
-	int i, p = 1, flag = 0, m;
+	int i, sign = 1, flag = 0, output;
 	unsigned int result = 0;
 
 	for (i = 0; s[i] != '\0' && flag != 2; i++)
 	{
 		if (s[i] == '-')
-			p *= -1;
+			sign *= -1;
 
 		if (s[i] >= '0' && s[i] <= '9')
 		{
@@ -70,10 +70,10 @@ int _atoi(char *s)
 			flag = 2;
 	}
 
-	if (p == -1)
-		m = -result;
+	if (sign == -1)
+		output = -result;
 	else
-		m = result;
+		output = result;
 
-	return (m);
+	return (output);
 }
