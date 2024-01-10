@@ -2,63 +2,63 @@
 
 /**
  * add_node - Funct. to  add a node to the start of the list
- * @h: address of pointer to the head node
- * @s: str field
- * @n: node index
+ * @head: address of pointer to the head node
+ * @str: str field
+ * @num: node index
  *
  * Return: size of list
  */
 
-list_t *add_node(list_t **h, const char *s, int n)
+list_t *add_node(list_t **head, const char *str, int num)
 {
 	list_t *new_head;
 
-	if (!h)
+	if (!head)
 		return (NULL);
 	new_head = malloc(sizeof(list_t));
 	if (!new_head)
 		return (NULL);
 	_memset((void *)new_head, 0, sizeof(list_t));
-	new_head->n = n;
-	if (s)
+	new_head->num = num;
+	if (str)
 	{
-		new_head->s = _strdup(s);
-		if (!new_head->s)
+		new_head->str = _strdup(str);
+		if (!new_head->str)
 		{
 			free(new_head);
 			return (NULL);
 		}
 	}
-	new_head->next = *h;
-	*h = new_head;
+	new_head->next = *head;
+	*head = new_head;
 	return (new_head);
 }
 
 /**
  * add_node_end - adds anode to the end of the list
- * @h: address pointer
- * @s: str field of hole
- * @n: nodeindex .......
+ * @head: address pointer
+ * @str: str field of hole
+ * @num: nodeindex .......
  * Return: size of list
  */
 
-list_t *add_node_end(list_t **h, const *s, int n)
+list_t *add_node_end(list_t **head, const char *str, int num)
 {
 	list_t *new_node, *node;
 
-	if (!h)
+	if (!head)
 		return (NULL);
 
-	node = *h;
+	node = *head;
 	new_node = malloc(sizeof(list_t));
 	if (!new_node)
 		return (NULL);
 	_memset((void *)new_node, 0, sizeof(list_t));
-	new_node->n = n;
-	if (s)
+	new_node->num = num;
+	if (str)
 	{
-		new_node->s = _strdup(s);
-		if (!new_node->s)
+		new_node->str = _strdup(str);
+		if (!new_node->str)
 		{
 			free(new_node);
 			return (NULL);
@@ -71,7 +71,7 @@ list_t *add_node_end(list_t **h, const *s, int n)
 		node->next = new_node;
 	}
 	else
-		h = new_node;
+		head = new_node;
 	return (new_node);
 }
 
