@@ -142,9 +142,9 @@ void _puts(char *s);
 int _putchar(char c);
 
 /* exits.c */
-char _strcpy(char *de, char *src, int m);
-char _strncat(char *de, char *src, int m);
-char _strchr(char *s, char c)
+char *_strcpy(char *de, char *src, int m);
+char *_strncat(char *de, char *src, int m);
+char *_strchr(char *s, char c)
 
 /* tokenizer.c */
 char **strtnow(char *s, char *d);
