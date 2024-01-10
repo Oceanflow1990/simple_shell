@@ -4,7 +4,7 @@
  * _erratoi - converts a string to an interger
  * @s: string to be converted
  *
- * Return: 0 otherwise -1
+ * Return: 0 otherwise -
  */
 
 int _erratoi(char *s)

@@ -50,7 +50,7 @@ void set_info(info_t *info, char **v)
  * @a: freeing field
  */
 
-voidfree_info(info_t *info, int a)
+void free_info(info_t *info, int a)
 {
 	ffree(info->argv);
 	info->argv = NULL;
