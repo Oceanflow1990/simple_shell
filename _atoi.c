@@ -20,8 +20,7 @@ int interactive(info_t *info)
  * Return: 1if true,0otherwise
  */
 
-int is_delim(char c, char *delim)
-{
+int is_delim(char c, char *delim){
 	while (*delim)
 		if (*delim++ == c)
 			return (1);
@@ -35,8 +34,7 @@ int is_delim(char c, char *delim)
  * Return: 1 if c is alphabetic, 0 otherwise
  */
 
-int _isalpha(int c)
-{
+int _isalpha(int c){
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	else
@@ -50,8 +48,7 @@ int _isalpha(int c)
  * Return: 0if number is stting, convert number otherwise
  */
 
-int _atoi(char *s)
-{
+int _atoi(char *s){
 	int i, p = 1, flag = 0, m;
 	unsigned int result = 0;
 
