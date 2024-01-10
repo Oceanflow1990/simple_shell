@@ -10,7 +10,7 @@
 int _erratoi(char *s)
 {
 	int i = 0;
-	unsigned long int prod = 0;
+	unsigned long int result = 0;
 
 	if (*s == '+')
 		s++;
@@ -18,15 +18,15 @@ int _erratoi(char *s)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
-			prod *= 10;
-			prod += (s[i] - '0');
-			if (prod > INT_MAX)
+			result *= 10;
+			result += (s[i] - '0');
+			if (result > INT_MAX)
 				return (-1);
 		}
 		else
 			return (-1);
 	}
-	return (prod);
+	return (result);
 }
 
 /**
@@ -87,33 +87,33 @@ int print_d(int input, int fd)
 
 /**
  * convert_number - convert function of itoa clone
- * @n: number
- * @s: base
- * @flag: argument flag
+ * @num: number
+ * @base: base
+ * @flags: argument flag
  *
  * Return: string
  */
 
-char *convert_number(long int n, int s, int flag)
+char *convert_number(long int num, int base, int flags)
 {
 	static char *array;
 	static char buffer[50];
 	char sign = 0;
 	char *ptr;
-	unsigned long n;
+	unsigned long n = num;
 
-	if (!(flags & CONVER_UNSIGED) && n < 0)
+	if (!(flags & CONVERT_UNSIGED) && num < 0)
 	{
-		n = -n;
+		n = -num;
 		sign = '-';
 	}
-	array = flag & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 
 	do	{
-		*--ptr = array[n % s];
-		n /= s;
+		*--ptr = array[n % base];
+		n /= base;
 	} while (n != 0);
 
 	if (sign)

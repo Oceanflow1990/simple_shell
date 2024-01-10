@@ -16,6 +16,7 @@ int _myhistory(info_t *info)
 /**
  * unset_alias - ets alias string
  * @info: arguments
+ * @str: ........
  *
  * Return: 0
  */
@@ -25,7 +26,7 @@ int unset_alias(info_t *info)
 	char *p, c;
 	int ret;
 
-	p = strchr(str, '-');
+	p = _strchr(str, '-');
 	if (!p)
 		return (1);
 	c = *p;

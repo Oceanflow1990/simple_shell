@@ -57,7 +57,7 @@ int _putfd(char c, int fd)
 
 	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(2, buf, i);
+		write(fd, buf, i);
 		i = 0;
 	}
 	if (c != BUF_FLUSH)
@@ -81,7 +81,7 @@ int _putsfd(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		i += _putsfd(*str++, fd)
+		i += _putfd(*str++, fd)
 	}
 	return (1);
 }

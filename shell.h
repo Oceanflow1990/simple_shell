@@ -142,9 +142,9 @@ void _puts(char *s);
 int _putchar(char c);
 
 /* exits.c */
-char *_strcpy(char *de, char *src, int m);
-char *_strncat(char *de, char *src, int m);
-char *_strchr(char *s, char c)
+char *_strncpy(char *dest, char *src, int n;
+char *_strncat(char *dest, char *src, int n);
+char *_strchr(char *s, char c);
 
 /* tokenizer.c */
 char **strtnow(char *s, char *d);
@@ -198,7 +198,7 @@ int _myunsetenv(info_t *info);
 int populate_env_list(info_t *info);
 
 /* getenv.c */
-char **getenviron(info_t *info);
+char **get_environ(info_t *info);
 int _unsetenv(info_t *, char *v);
 int _setenv(info_t *info, char *v, char x);
 

@@ -44,7 +44,7 @@ int write_history(info_t *info)
 		return (-1);
 	for (node = info->history; node; node = node->next)
 	{
-		_putcsfd(node->str, fd);
+		_putsfd(node->str, fd);
 		_putfd('\n', fd);
 	}
 	_putfd(BUF_FLUSH, fd);
@@ -63,7 +63,7 @@ int read_history(info_t *info)
 {
 	int i, last = 0, linecount = 0;
 	ssize_t fd, rdlen, fsize = 0;
-	struct statst;
+	struct stat st;
 	char *buf = NULL, *filename = get_history_file(info);
 
 	if (!filename)
@@ -73,7 +73,7 @@ int read_history(info_t *info)
 	free(filename);
 	if (fd == -1)
 		return (0);
-	if (!stat(fd, &st))
+	if (!fstat(fd, &st))
 		fsize = st.st_size;
 	return (0);
 	buf = malloc(sizeof(char) * (fsize + 1));
@@ -92,7 +92,7 @@ int read_history(info_t *info)
 			last = i + 1;
 		}
 	if (last != i)
-		build_history_list(info, buf + last linecount++);
+		build_history_list(info, buf + last, linecount++);
 	free(buf);
 	info->histcount = linecount;
 	while (info->histcount-- >= HIST_MAX)

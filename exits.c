@@ -3,31 +3,31 @@
 #include <string.h>
 
 /**
- * _strcpy - copies a string
- * @de: destination
+ * _strncpy - copies a string
+ * @dest: destination
  * @src: source string to copy
- * @m: amount of characters to copy
+ * @n: amount of characters to copy
  *
  * Return: concatinated string
  */
 
-char *_strcpy(char *de, char *src, int m)
+char *_strncpy(char *dest, char *src, int n)
 {
 	int i, j;
-	char *s = de;
+	char *s = dest;
 
 	i = 0;
 	while (src[i] != '\0' && i < n - 1)
 	{
-		de[i] = src[i];
+		dest[i] = src[i];
 		i++;
 	}
-	if (i < m)
+	if (i < n)
 	{
 		j = i;
-		while (j < m)
+		while (j < n)
 		{
-			de[j] = '\0';
+			dest[j] = '\0';
 			j++;
 		}
 	}
@@ -36,30 +36,30 @@ char *_strcpy(char *de, char *src, int m)
 
 /**
  * *_strncat - concatenates two strings
- * @de: first string
+ * @dest: first string
  * @src: secnod string
- * @m: amount of byes to be used
+ * @n: amount of byes to be used
  * Return: concatenated string
  */
 
-char *_strncat(char *de, char *src, int m)
+char *_strncat(char *dest, char *src, int n)
 {
 	int i, j;
-	char *s = de;
+	char *s = dest;
 
 	i = 0;
 	j = 0;
 	j = 0;
-	while (de[i] != '\0')
+	while (dest[i] != '\0')
 		i++;
-	while (src[j] != '\0' && j < m)
+	while (src[j] != '\0' && j < n)
 	{
-		de[i] = src[j];
+		dest[i] = src[j];
 		i++;
 		j++;
 	}
-	if (j < m)
-		de[i] = '\0';
+	if (j < n)
+		dest[i] = '\0';
 	return (s);
 }
 
