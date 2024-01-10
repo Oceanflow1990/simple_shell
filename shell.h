@@ -79,7 +79,7 @@ typedef struct passinfo
 	int linecount_flag;
 	char *fname;
 	list_t *env;
-	lisr_t *history;
+	list_t *history;
 	list_t *alias;
 	char **environ;
 	int env_changed;
@@ -116,7 +116,7 @@ void find_cmd(info_t *info);
 void fork_cmd(info_t *info);
 
 /* parser.c */
-int is_cmd(info *info, char *path);
+int is_cmd(info_t *info, char *path);
 char *dup_chars(char *pathstr, int start, int stop);
 char *find_path(info_t *info, char *pathstr, char *cmd);
 
@@ -142,9 +142,9 @@ void _puts(char *s);
 int _putchar(char c);
 
 /* exits.c */
-char *_strcpy(char *de, char *src, int m);
-char *_strncat(char *de, char *src, int m);
-char *_strchr(char *s, char c)
+char _strcpy(char *de, char *src, int m);
+char _strncat(char *de, char *src, int m);
+char _strchr(char *s, char c)
 
 /* tokenizer.c */
 char **strtnow(char *s, char *d);
@@ -160,7 +160,7 @@ int _isalpha(int c);
 int _atoi(char *s);
 
 /* errors1.c */
-int_erratoi(char *s);
+int _erratoi(char *s);
 void print_error(info_t *info, char *estr);
 int print_d(int input, int fd);
 char *convert_number(long int n, int s, int flag);
@@ -214,11 +214,11 @@ list_t *add_node(list_t **head, const char *str, int num);
 list_t *add_node_end(list_t **head, const char *str, int num);
 size_t print_list_str(const list_t *h);
 int delete_node_at_index(list_t **head, unsigned int index);
-void free_list(list_t **)head_ptr;
+void free_list(list_t **head_ptr);
 
 /* lists1.c */
 size_t list_len(const list_t *h);
-char **list_to_strings(lists_t *head);
+char **list_to_strings(list_t *head);
 size_t prints_lists(const list_t *h);
 list_t *node_starts_width(list_t *node, char *prefix, char c);
 ssize_t get_node_index(list_t *head, list_t *node);

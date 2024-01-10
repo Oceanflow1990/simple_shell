@@ -9,7 +9,7 @@
  * Return: concatinated string
  */
 
-char *_strcpy(char *de, char *src, int m)
+char _strcpy(char *de, char *src, int m)
 {
 	int i, j;
 	char *s = de;
@@ -40,7 +40,7 @@ char *_strcpy(char *de, char *src, int m)
  * Return: concatenated string
  */
 
-char *_strncat(char *de, char *src, int m)
+char _strncat(char *de, char *src, int m)
 {
 	int i, j;
 	char *s = de;
@@ -69,7 +69,7 @@ char *_strncat(char *de, char *src, int m)
  * Return: (s) a pointerto the memory area s
  */
 
-char *_strchr(char *s, char c)
+char _strchr(char *s, char c)
 {
 	do {
 		if (*s == c)
