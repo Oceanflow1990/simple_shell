@@ -142,7 +142,7 @@ void _puts(char *s);
 int _putchar(char c);
 
 /* exits.c */
-char *_strncpy(char *dest, char *src, int n;
+char *_strncpy(char *dest, char *src, int n);
 char *_strncat(char *dest, char *src, int n);
 char *_strchr(char *s, char c);
 
